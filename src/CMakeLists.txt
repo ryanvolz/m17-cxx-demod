@@ -5,7 +5,7 @@ target_include_directories(m17cxx INTERFACE
     $<INSTALL_INTERFACE:include>
     )
 
-target_compile_features(m17cxx INTERFACE cxx_std_17)
+target_compile_features(m17cxx INTERFACE cxx_std_20)
 
 if(MSVC)
     # specify standards-conformance mode

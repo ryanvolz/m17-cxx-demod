@@ -5,7 +5,7 @@ project(m17cxx
     DESCRIPTION "M17 Digital Voice modulation and demodulation"
     LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 # Require out-of-source builds
 file(TO_CMAKE_PATH "${PROJECT_BINARY_DIR}/CMakeLists.txt" LOC_PATH)

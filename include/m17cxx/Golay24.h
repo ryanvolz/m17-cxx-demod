@@ -4,14 +4,10 @@
 #pragma once
 
 #include <array>
+#include <bit>
 #include <cstdint>
 #include <algorithm>
 #include <utility>
-
-#ifdef _MSC_VER
-#  include <intrin.h>
-#  define __builtin_popcount __popcnt
-#endif
 
 namespace mobilinkd {
 
@@ -117,7 +113,7 @@ constexpr uint32_t syndrome(uint32_t codeword)
 
 constexpr bool parity(uint32_t codeword)
 {
-    return __builtin_popcount(codeword) & 1;
+    return std::popcount(codeword) & 1;
 }
 
 constexpr SyndromeMapEntry makeSyndromeMapEntry(uint64_t val)
@@ -219,7 +215,7 @@ bool decode(uint32_t input, uint32_t& output)
         // Apply the correction to the input.
         output = input ^ correction;
         // Only test parity for 3-bit errors.
-        return __builtin_popcount(syndrm) < 3 || !parity(output);
+        return std::popcount(syndrm) < 3 || !parity(output);
     }
 
     return false;
