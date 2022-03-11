@@ -90,11 +90,13 @@ constexpr array<T, N> sort(array<T, N> array)
 // static constexpr uint16_t POLY = 0xAE3;
 constexpr uint16_t POLY = 0xC75;
 
-struct __attribute__((packed)) SyndromeMapEntry
+#pragma pack(push, 1)
+struct SyndromeMapEntry
 {
     uint32_t a{0};
     uint16_t b{0};
 };
+#pragma pack(pop)
 
 /**
  * Calculate the syndrome of a [23,12] Golay codeword.
