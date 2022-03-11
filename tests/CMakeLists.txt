@@ -1,5 +1,4 @@
 include(GoogleTest)
-pkg_check_modules(CODEC2 REQUIRED codec2)
 
 include_directories (
     ${TEST_SOURCE_DIR}

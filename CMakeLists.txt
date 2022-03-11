@@ -24,10 +24,9 @@ message(STATUS "# Checking dependencies")
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
-include(FindPkgConfig)
 include(GNUInstallDirs)
 
-pkg_check_modules(CODEC2 REQUIRED codec2)
+find_package(codec2 REQUIRED)
 set(Boost_USE_STATIC_LIBS FALSE)
 find_package(Boost COMPONENTS program_options REQUIRED)
 
